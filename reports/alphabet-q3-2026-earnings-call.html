@@ -1,0 +1,621 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alphabet 2026 Q3 电话会</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: single editorial column (max 1040px); charts sit in 2-up grids or chart + side-note grids on wide screens, stacking to one column on phones. */
+:root {
+  --bg: #f3f4f6;
+  --surface: #ffffff;
+  --ink: #121519;
+  --ink-2: #434a54;
+  --muted: #646c78;
+  --rule: #d6dbe1;
+  --hair: #e8ebef;
+  --bar: #3f4955;
+  --bar-2: #7f8996;
+  --bar-3: #e1e5ea;
+  --accent: #1d5fc9;
+  --accent-2: #8fb2ea;
+  --accent-soft: #e6eefb;
+  --neg: #c0392f;
+  --neg-soft: #f8e3e0;
+  --pos: #1e7a46;
+  --d-ads: #eb6834;
+  --d-model: #b0408f;
+  --d-search: #1a9e6e;
+  --f-display: "Songti SC", "Noto Serif SC", "Source Han Serif SC", "STSong", "SimSun", serif;
+  --f-sans: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.75rem;
+  --fs-2xl: clamp(1.75rem, 4.6vw, 2.75rem);
+  --radius: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1013;
+    --surface: #161a1f;
+    --ink: #eceff2;
+    --ink-2: #b6bec8;
+    --muted: #8e97a3;
+    --rule: #2c323a;
+    --hair: #22272e;
+    --bar: #b0bac6;
+    --bar-2: #6f7a88;
+    --bar-3: #262c34;
+    --accent: #4a88e8;
+    --accent-2: #2b5596;
+    --accent-soft: #182740;
+    --neg: #e05a50;
+    --neg-soft: #3b201e;
+    --pos: #45b975;
+  --d-ads: #d95926;
+  --d-model: #b04c9c;
+  --d-search: #1fa874;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1013;
+  --surface: #161a1f;
+  --ink: #eceff2;
+  --ink-2: #b6bec8;
+  --muted: #8e97a3;
+  --rule: #2c323a;
+  --hair: #22272e;
+  --bar: #b0bac6;
+  --bar-2: #6f7a88;
+  --bar-3: #262c34;
+  --accent: #4a88e8;
+  --accent-2: #2b5596;
+  --accent-soft: #182740;
+  --neg: #e05a50;
+  --neg-soft: #3b201e;
+  --pos: #45b975;
+  --d-ads: #d95926;
+  --d-model: #b04c9c;
+  --d-search: #1fa874;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-sans);
+  font-size: var(--fs-md);
+  line-height: 1.65;
+}
+.page {
+  max-width: 1040px;
+  margin-inline: auto;
+  padding-block: 32px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid;
+  gap: 56px;
+}
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- masthead ---------- */
+.mast { display: grid; gap: 18px; border-bottom: 2px solid var(--ink); padding-bottom: 24px; }
+.mast-top { display: flex; justify-content: space-between; align-items: stretch; gap: 12px; flex-wrap: wrap; }
+.eyebrow { display: flex; align-items: center; font-size: var(--fs-xs); letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
+.theme-btn {
+  font: inherit; font-size: var(--fs-xs); color: var(--ink-2);
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 999px;
+  padding: 4px 12px; cursor: pointer;
+}
+.theme-btn:hover { border-color: var(--bar-2); }
+.mast h1 { font-family: var(--f-display); font-size: var(--fs-2xl); line-height: 1.2; font-weight: 700; }
+.mast .sub { font-size: var(--fs-lg); color: var(--ink-2); }
+.lede {
+  font-size: var(--fs-lg); line-height: 1.6; max-width: 40em;
+  border-left: 3px solid var(--accent); padding-left: 14px;
+}
+.lede b { color: var(--accent); }
+.cast { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: var(--fs-sm); color: var(--muted); margin: 0; padding: 0; list-style: none; }
+.cast b { color: var(--ink); font-weight: 600; margin-right: 4px; }
+
+/* ---------- KPI tiles ---------- */
+.kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; }
+.kpi { background: var(--surface); padding: 16px 18px; display: grid; gap: 4px; align-content: start; min-width: 0; }
+.kpi .k-label { font-size: var(--fs-sm); color: var(--muted); }
+.kpi .k-value { font-size: var(--fs-xl); font-weight: 650; line-height: 1.2; }
+.kpi .k-delta { font-size: var(--fs-sm); color: var(--ink-2); }
+.kpi.is-accent { background: var(--accent-soft); }
+.kpi.is-accent .k-value { color: var(--accent); }
+.kpi.is-neg .k-value { color: var(--neg); }
+
+/* ---------- sections ---------- */
+.sec { display: grid; gap: 22px; }
+.sec-head { border-top: 1px solid var(--rule); padding-top: 16px; }
+.sec-head h2 { font-family: var(--f-display); font-size: var(--fs-xl); line-height: 1.3; }
+.sec-no { display: inline-block; width: 2.6rem; font-family: var(--f-sans); font-size: var(--fs-sm); font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: 0.06em; vertical-align: 0.2em; }
+.sec-head .thesis { color: var(--ink-2); max-width: 44em; margin-top: 4px; padding-left: 2.6rem; }
+
+/* Multi-column rows: every card in a row is stretched to the row height. */
+.grid-2, .grid-note { display: grid; gap: 20px; align-items: stretch; }
+.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-note { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+.stack { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.stack > :last-child { flex: 1 1 auto; }
+
+.fig { margin: 0; background: var(--surface); border: 1px solid var(--hair); border-radius: var(--radius); padding: 16px 18px 14px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.fig-head { line-height: 1.5; }
+.fig-head::after { content: ""; display: block; clear: both; }
+.fig-head .unit { float: right; margin-left: 12px; font-size: var(--fs-xs); color: var(--muted); line-height: 1.9; }
+.fig-id { font-size: var(--fs-xs); font-weight: 700; color: var(--accent); letter-spacing: 0.06em; margin-right: 8px; }
+.fig-head h3 { font-size: var(--fs-md); font-weight: 650; }
+.fig svg { display: block; width: 100%; height: auto; max-width: 520px; margin-inline: auto; overflow: visible; }
+.fig figcaption { margin-top: auto; font-size: var(--fs-sm); color: var(--muted); line-height: 1.55; border-top: 1px solid var(--hair); padding-top: 10px; }
+.est-key { display: inline-block; width: 14px; height: 10px; border: 1.5px dashed var(--bar-2); background: var(--bar-3); vertical-align: -1px; margin-right: 4px; }
+
+/* SVG ink: text wears text tokens, marks wear mark tokens */
+svg text { font-family: var(--f-sans); font-size: 15px; }
+.c-lbl { fill: var(--ink-2); }
+.c-name { fill: var(--ink); font-weight: 500; }
+.c-sub { fill: var(--muted); }
+.c-tick { fill: var(--muted); font-variant-numeric: tabular-nums; }
+.c-val, .c-halo { paint-order: stroke; stroke: var(--surface); stroke-width: 4px; stroke-linejoin: round; }
+.c-val { fill: var(--ink); font-weight: 650; font-variant-numeric: tabular-nums; }
+.c-halo { fill: var(--ink); font-weight: 500; }
+.c-halo.is-sub { fill: var(--muted); font-weight: 400; }
+.c-num { fill: var(--surface); font-weight: 700; }
+.c-grid { stroke: var(--hair); stroke-width: 1; }
+.c-hair { stroke: var(--hair); stroke-width: 1; }
+.c-axis { stroke: var(--rule); stroke-width: 1.5; }
+.c-conn { stroke: var(--bar-2); stroke-width: 1; }
+.c-ref { stroke: var(--ink-2); stroke-width: 1.5; }
+.c-flow { stroke: var(--bar-2); stroke-width: 2; }
+.c-line-acc { stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; }
+.c-line-proj { stroke: var(--bar-2); stroke-width: 2; stroke-dasharray: 5 4; stroke-linecap: round; }
+.m-bar { fill: var(--bar); }
+.m-bar2 { fill: var(--bar-2); }
+.m-ink { fill: var(--ink); }
+.m-acc { fill: var(--accent); }
+.m-acc2 { fill: var(--accent-2); }
+.m-neg { fill: var(--neg); }
+.m-pos { fill: var(--pos); }
+.m-negsoft { fill: var(--neg-soft); }
+.m-flow { fill: var(--bar-2); }
+.m-box { fill: var(--hair); }
+.m-card { fill: var(--surface); stroke: var(--rule); stroke-width: 1; }
+.m-aside { fill: none; stroke: var(--bar-2); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.m-est { fill: var(--bar-3); stroke: var(--bar-2); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.m-dot { fill: var(--accent); stroke: var(--surface); stroke-width: 2; }
+.f-d-ads { fill: var(--d-ads); } .f-d-model { fill: var(--d-model); } .f-d-search { fill: var(--d-search); } .f-d-cloud { fill: var(--accent); }
+.s-d-ads { stroke: var(--d-ads); } .s-d-model { stroke: var(--d-model); } .s-d-search { stroke: var(--d-search); } .s-d-cloud { stroke: var(--accent); }
+[class^="s-d-"] { stroke-width: 2.5; stroke-linecap: round; }
+.o-d-ads { stroke: var(--d-ads); } .o-d-model { stroke: var(--d-model); } .o-d-search { stroke: var(--d-search); } .o-d-cloud { stroke: var(--accent); }
+[class^="o-d-"] { fill: var(--surface); stroke-width: 2.5; }
+.ring { stroke: var(--surface); stroke-width: 2; }
+.f-empty { fill: var(--bar-3); }
+.f-none { fill: transparent; }
+.c-big { fill: var(--ink); font-size: 22px; font-weight: 700; }
+.c-big-sub { fill: var(--muted); font-size: 15px; font-weight: 400; }
+
+/* ---------- side notes ---------- */
+.note { background: var(--surface); border: 1px solid var(--hair); border-radius: var(--radius); padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; min-width: 0; font-size: var(--fs-sm); }
+.note h4 { margin: 0; font-size: var(--fs-sm); font-weight: 700; color: var(--ink); }
+.note ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; color: var(--ink-2); }
+.note .quote { border-left: 2px solid var(--rule); padding-left: 10px; color: var(--ink-2); }
+.note .quote.is-lead { font-size: var(--fs-md); color: var(--ink); line-height: 1.6; }
+.note .quote cite { display: block; font-style: normal; font-size: var(--fs-xs); color: var(--muted); margin-top: 4px; }
+.cols-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px; }
+.cols-2 > div { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.pairs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.pair { background: var(--bg); border-radius: var(--radius); padding: 10px 12px; }
+.pair .p-label { font-size: var(--fs-xs); color: var(--muted); }
+.pair .p-value { font-size: var(--fs-lg); font-weight: 650; }
+.chips, .note .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.chips li { font-size: var(--fs-xs); border: 1px solid var(--rule); border-radius: 999px; padding: 2px 10px; color: var(--ink-2); background: var(--surface); }
+.neg-text { color: var(--neg); font-weight: 600; }
+
+/* ---------- AI section: scale tiles and milestones ---------- */
+.tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; }
+.tile { background: var(--surface); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.tile .t-value { font-size: var(--fs-xl); font-weight: 650; line-height: 1.2; }
+.tile .t-desc { font-size: var(--fs-sm); color: var(--ink-2); line-height: 1.5; }
+.milestones h3 { margin: 0; font-size: var(--fs-md); font-weight: 700; }
+.ms-group { display: flex; flex-direction: column; gap: 6px; }
+
+/* ---------- Q&A ---------- */
+.qa { display: grid; gap: 14px; }
+.qa-card { background: var(--surface); border: 1px solid var(--hair); border-radius: var(--radius); padding: 16px 18px; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr); gap: 12px 24px; }
+.qa-who { font-size: var(--fs-xs); color: var(--muted); letter-spacing: 0.04em; }
+.qa-who b { color: var(--ink); font-size: var(--fs-sm); letter-spacing: 0; margin-right: 6px; }
+.qa-q { font-weight: 600; margin-top: 6px; line-height: 1.55; }
+.qa-a { display: grid; gap: 10px; min-width: 0; }
+.qa-a h4 { margin: 0 0 2px; font-size: var(--fs-xs); color: var(--accent); font-weight: 700; letter-spacing: 0.04em; }
+.qa-a ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; font-size: var(--fs-sm); color: var(--ink-2); }
+.qa-a .hl { color: var(--ink); font-weight: 600; }
+.qa-a .aside { color: var(--muted); }
+
+/* ---------- outlook ---------- */
+.outlook { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--rule); }
+.outlook li { display: grid; grid-template-columns: 5.5em 9em minmax(0, 1fr); gap: 12px; padding-block: 12px; border-bottom: 1px solid var(--rule); align-items: stretch; }
+.outlook .o-tag { display: inline-block; font-size: var(--fs-xs); font-weight: 700; line-height: 1.5; border-radius: 999px; padding: 1px 8px; border: 1px solid currentColor; }
+.o-tag.down { color: var(--neg); }
+.o-tag.up { color: var(--pos); }
+.o-tag.flat { color: var(--ink-2); }
+.outlook .o-topic { font-weight: 700; }
+.outlook .o-text { color: var(--ink-2); }
+
+footer.foot { border-top: 2px solid var(--ink); padding-top: 16px; font-size: var(--fs-sm); color: var(--muted); display: grid; gap: 6px; max-width: 48em; }
+
+@media (max-width: 899px) {
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .grid-2, .grid-note, .cols-2 { grid-template-columns: minmax(0, 1fr); }
+  .qa-card { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .page { gap: 44px; padding-block: 20px 40px; }
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi { padding: 12px 14px; }
+  .kpi .k-value { font-size: var(--fs-lg); }
+  .sec-no { display: block; width: auto; vertical-align: baseline; }
+  .sec-head .thesis { padding-left: 0; }
+  .fig, .note, .qa-card { padding-inline: 12px; }
+  .fig-head { display: grid; gap: 2px; }
+  .fig-head::after { content: none; }
+  .fig-head .unit { float: none; order: 2; margin-left: 0; }
+  .outlook li { grid-template-columns: auto minmax(0, 1fr); }
+  .outlook .o-text { grid-column: 1 / -1; }
+  .pairs { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="page">
+
+<header class="mast">
+  <div class="mast-top">
+    <span class="eyebrow">Alphabet Inc. · GOOGL / GOOG · 2026 年第三季度</span>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="切换配色主题">主题：跟随系统</button>
+  </div>
+  <h1>Alphabet 2026 年第三季度财报电话会</h1>
+  <p class="sub">中文全文可视化摘要</p>
+  <p class="lede">营收同比 <b>+25%</b>，年化规模达 <b>$500B</b>；Google Cloud 收入 <b>+103%</b>，是本季绝对主角。代价是重资本开支和负自由现金流。</p>
+  <ul class="cast">
+    <li><b>Sundar Pichai</b>首席执行官</li>
+    <li><b>Philipp Schindler</b>首席商务官</li>
+    <li><b>Thomas Kurian</b>Google Cloud 首席执行官</li>
+    <li><b>Anat Ashkenazi</b>首席财务官</li>
+    <li><b>Jim Friedland</b>投资者关系负责人</li>
+  </ul>
+</header>
+
+<section class="kpis" aria-label="核心指标">
+  <div class="kpi"><span class="k-label">合并营收</span><span class="k-value">$127.6B</span><span class="k-delta">同比 +25% · 连续第 13 个季度两位数增长</span></div>
+  <div class="kpi"><span class="k-label">营业利润</span><span class="k-value">$40.6B</span><span class="k-delta">同比 +30% · 利润率 31.8%</span></div>
+  <div class="kpi is-accent"><span class="k-label">Google Cloud 收入</span><span class="k-value">$30.7B</span><span class="k-delta">同比 +103% · 增长纪录</span></div>
+  <div class="kpi"><span class="k-label">资本开支</span><span class="k-value">$51.4B</span><span class="k-delta">全年指引 $195–205B 不变</span></div>
+  <div class="kpi is-neg"><span class="k-label">自由现金流</span><span class="k-value">−$9.1B</span><span class="k-delta">资本开支、TPU 备货与欧盟罚款拖累</span></div>
+  <div class="kpi"><span class="k-label">Cloud 积压订单</span><span class="k-value">$561B</span><span class="k-delta">略高于 55% 预计 24 个月内确认</span></div>
+</section>
+
+<section class="sec" id="revenue">
+  <div class="sec-head">
+    <h2><span class="sec-no">01</span>收入构成</h2>
+    <p class="thesis">搜索仍是收入底盘，Cloud 是增长引擎：Cloud +103%，其余已披露增速的业务线只有 +1% 到 +12%。</p>
+  </div>
+  <div class="grid-2">
+    <figure class="fig">
+      <div class="fig-head"><span class="unit">单位：US$ B（十亿美元）</span><h3><span class="fig-id">图 A</span>各业务线收入</h3></div>
+      <svg viewBox="0 0 400 310" role="img" aria-labelledby="ca-t ca-d"><title id="ca-t">图 A 各业务线收入</title><desc id="ca-d">合并营收 $127.6B，其中 Google 服务 $96.3B、Google Cloud $30.7B、其他业务 $372M。</desc><text x="0" y="14" class="c-val">合并营收 127.6</text><path d="M0,24H300.9Q300.9,24 300.9,24V46Q300.9,46 300.9,46H0Z" class="m-bar"><title>Google 服务 $96.3B（+11%）</title></path><path d="M302.9,24H397.1Q397.1,24 397.1,24V46Q397.1,46 397.1,46H302.9Z" class="m-acc"><title>Google Cloud $30.7B（+103%）</title></path><rect x="399.1" y="24" width="0.9" height="22" class="m-bar2"><title>其他业务及未列项 约 $0.6B（推算）</title></rect><text x="0" y="66" class="c-name">Google 服务 96.3 · +11%</text><text x="400" y="66" class="c-name" text-anchor="end">Cloud 30.7 · +103%</text><line x1="0" y1="84" x2="400" y2="84" class="c-hair"/><text x="0" y="106" class="c-sub">Google 服务构成</text><text x="0" y="134" class="c-lbl">搜索及其他广告</text><path d="M130,121H324.4Q328.4,121 328.4,125V133Q328.4,137 324.4,137H130Z" class="m-bar"><title>搜索及其他广告 $63.3B（+12%）</title></path><text x="334.4" y="134" class="c-val">63.3</text><text x="0" y="164" class="c-lbl">订阅、平台和设备</text><path d="M130,151H170.8Q174.8,151 174.8,155V163Q174.8,167 170.8,167H130Z" class="m-bar"><title>订阅、平台和设备 $14.3B（+11%）</title></path><text x="180.8" y="164" class="c-val">14.3</text><text x="0" y="194" class="c-lbl">YouTube 广告</text><path d="M130,181H161.1Q165.1,181 165.1,185V193Q165.1,197 161.1,197H130Z" class="m-bar"><title>YouTube 广告 $11.2B（+9%）</title></path><text x="171.1" y="194" class="c-val">11.2</text><text x="0" y="224" class="c-lbl">广告联盟</text><path d="M130,211H149.5Q153.5,211 153.5,215V223Q153.5,227 149.5,227H130Z" class="m-bar"><title>广告联盟 $7.5B（+1%）</title></path><text x="159.5" y="224" class="c-val">7.5</text><line x1="0" y1="240" x2="400" y2="240" class="c-hair"/><text x="0" y="266" class="c-lbl">Google Cloud</text><path d="M130,253H222.2Q226.2,253 226.2,257V265Q226.2,269 222.2,269H130Z" class="m-acc"><title>Google Cloud $30.7B（+103%）</title></path><text x="232.2" y="266" class="c-val">30.7</text><text x="0" y="296" class="c-lbl">其他业务</text><rect x="130" y="283" width="1.2" height="16" class="m-bar2"><title>其他业务 $372M</title></rect><text x="137.2" y="296" class="c-val">0.37</text><line x1="130" y1="116" x2="130" y2="304" class="c-axis"/></svg>
+      <figcaption>顶部条为合并营收 $127.6B，下方各业务线与其同一比例尺。分项合计约 $127.4B（推算），与合并数相差约 $0.2B，差额构成电话会未说明。</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="fig-head"><span class="unit">%</span><h3><span class="fig-id">图 B</span>各业务线同比增速</h3></div>
+      <svg viewBox="0 0 400 282" role="img" aria-labelledby="cb-t cb-d"><title id="cb-t">图 B 各业务线同比增速</title><desc id="cb-d">Google Cloud +103%；Google 服务合计 +11%，其中各业务线 +1% 到 +12%；Alphabet 整体 +25%。</desc><line x1="130" y1="30" x2="130" y2="250" class="c-grid"/><text x="130" y="20" class="c-tick" text-anchor="middle">0</text><line x1="180" y1="30" x2="180" y2="250" class="c-grid"/><text x="180" y="20" class="c-tick" text-anchor="middle">25%</text><line x1="230" y1="30" x2="230" y2="250" class="c-grid"/><text x="230" y="20" class="c-tick" text-anchor="middle">50%</text><line x1="280" y1="30" x2="280" y2="250" class="c-grid"/><text x="280" y="20" class="c-tick" text-anchor="middle">75%</text><line x1="330" y1="30" x2="330" y2="250" class="c-grid"/><text x="330" y="20" class="c-tick" text-anchor="middle">100%</text><line x1="180" y1="30" x2="180" y2="254" class="c-ref"/><text x="180" y="274" class="c-sub" text-anchor="middle">Alphabet 整体 +25%</text><text x="0" y="55" class="c-name">Google Cloud</text><path d="M130,42H332Q336,42 336,46V54Q336,58 332,58H130Z" class="m-acc"><title>Google Cloud 同比 +103%</title></path><text x="342" y="55" class="c-val">+103%</text><text x="0" y="105" class="c-name">Google 服务合计</text><path d="M130,92H148Q152,92 152,96V104Q152,108 148,108H130Z" class="m-bar"><title>Google 服务合计 同比 +11%</title></path><text x="158" y="105" class="c-val">+11%</text><text x="0" y="139" class="c-lbl">搜索及其他广告</text><path d="M130,126H150Q154,126 154,130V138Q154,142 150,142H130Z" class="m-bar2"><title>搜索及其他广告 同比 +12%</title></path><text x="160" y="139" class="c-val">+12%</text><text x="0" y="173" class="c-lbl">订阅、平台和设备</text><path d="M130,160H148Q152,160 152,164V172Q152,176 148,176H130Z" class="m-bar2"><title>订阅、平台和设备 同比 +11%</title></path><text x="158" y="173" class="c-val">+11%</text><text x="0" y="207" class="c-lbl">YouTube 广告</text><path d="M130,194H144Q148,194 148,198V206Q148,210 144,210H130Z" class="m-bar2"><title>YouTube 广告 同比 +9%</title></path><text x="154" y="207" class="c-val">+9%</text><text x="0" y="241" class="c-lbl">广告联盟</text><rect x="130" y="228" width="2" height="16" class="m-bar2"><title>广告联盟 同比 +1%</title></rect><text x="138" y="241" class="c-val">+1%</text><line x1="0" y1="76" x2="400" y2="76" class="c-hair"/><line x1="130" y1="30" x2="130" y2="250" class="c-axis"/></svg>
+      <figcaption>竖线为 Alphabet 整体增速 +25%。已披露增速的业务线中只有 Cloud 跑赢整体；广告联盟几乎停滞（+1%）。其他业务的增速原文未给。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" id="profit">
+  <div class="sec-head">
+    <h2><span class="sec-no">02</span>从营收到营业利润</h2>
+    <p class="thesis">营业利润 +30%，快于营收的 +25%，利润率 31.8%；但营业利润以下的投资亏损让净利润同比下降。</p>
+  </div>
+  <div class="grid-note">
+    <figure class="fig">
+      <div class="fig-head"><span class="unit">单位：US$ B（十亿美元）</span><h3><span class="fig-id">图 C</span>利润瀑布</h3></div>
+      <svg viewBox="0 0 400 346" role="img" aria-labelledby="cc-t cc-d"><title id="cc-t">图 C 利润瀑布</title><desc id="cc-d">营收 $127.6B，减 TAC $16.4B、其他收入成本 $35.1B、运营费用 $35.6B，得营业利润 $40.6B。</desc><line x1="0" y1="280" x2="400" y2="280" class="c-axis"/><path d="M18,280V48.4Q18,44.4 22,44.4H58Q62,44.4 62,48.4V280Z" class="m-bar"><title>营收 $127.6B（+25%）</title></path><text x="40" y="36.4" class="c-val" text-anchor="middle">127.6</text><line x1="62" y1="44.4" x2="98" y2="44.4" class="c-conn"/><rect x="98" y="44.4" width="44" height="30.3" rx="3" class="m-bar2"><title>TAC −$16.4B（+10%）</title></rect><text x="120" y="92.7" class="c-val" text-anchor="middle">−16.4</text><line x1="142" y1="74.7" x2="178" y2="74.7" class="c-conn"/><rect x="178" y="74.7" width="44" height="64.8" rx="3" class="m-bar2"><title>其他收入成本 −$35.1B（+32%）</title></rect><text x="200" y="157.5" class="c-val" text-anchor="middle">−35.1</text><line x1="222" y1="139.5" x2="258" y2="139.5" class="c-conn"/><rect x="258" y="139.5" width="44" height="65.7" rx="3" class="m-bar2"><title>运营费用 −$35.6B（+20%）</title></rect><text x="280" y="223.2" class="c-val" text-anchor="middle">−35.6</text><line x1="302" y1="205.2" x2="338" y2="205.2" class="c-conn"/><path d="M338,280V209Q338,205 342,205H378Q382,205 382,209V280Z" class="m-ink"><title>营业利润 $40.6B（+30%，利润率 31.8%）</title></path><text x="360" y="197" class="c-val" text-anchor="middle">40.6</text><text x="40" y="302" class="c-name" text-anchor="middle">营收</text><text x="40" y="320" class="c-sub" text-anchor="middle">+25%</text><text x="120" y="302" class="c-name" text-anchor="middle">TAC</text><text x="120" y="320" class="c-sub" text-anchor="middle">+10%</text><text x="200" y="302" class="c-name" text-anchor="middle">其他收入</text><text x="200" y="320" class="c-name" text-anchor="middle">成本</text><text x="200" y="338" class="c-sub" text-anchor="middle">+32%</text><text x="280" y="302" class="c-name" text-anchor="middle">运营费用</text><text x="280" y="320" class="c-sub" text-anchor="middle">+20%</text><text x="360" y="302" class="c-name" text-anchor="middle">营业利润</text><text x="360" y="320" class="c-sub" text-anchor="middle">+30%</text></svg>
+      <figcaption>柱下第二行为同比增速。三项扣减相加比营业利润少 $0.1B，属舍入差。TAC 与其他收入成本合计约 $51.4B（原文分别给出 16.4 / 35.1 / 51.4，存在舍入差）。</figcaption>
+    </figure>
+    <div class="stack">
+      <figure class="fig">
+        <div class="fig-head"><span class="unit">%</span><h3><span class="fig-id">图 C 附</span>运营费用分项同比</h3></div>
+        <svg viewBox="0 0 400 160" role="img" aria-labelledby="cc2-t cc2-d"><title id="cc2-t">图 C 附 运营费用分项同比</title><desc id="cc2-d">运营费用合计 $35.6B，同比 +20%；研发 +36%，销售和营销 +22%，一般及行政 −17%。</desc><text x="0" y="35" class="c-name">运营费用合计</text><path d="M200,22H276Q280,22 280,26V34Q280,38 276,38H200Z" class="m-ink"><title>运营费用合计 同比 +20%</title></path><text x="286" y="35" class="c-val">+20%</text><text x="0" y="79" class="c-lbl">研发</text><path d="M200,66H340Q344,66 344,70V78Q344,82 340,82H200Z" class="m-bar2"><title>研发 同比 +36%</title></path><text x="350" y="79" class="c-val">+36%</text><text x="0" y="113" class="c-lbl">销售和营销</text><path d="M200,100H284Q288,100 288,104V112Q288,116 284,116H200Z" class="m-bar2"><title>销售和营销 同比 +22%</title></path><text x="294" y="113" class="c-val">+22%</text><text x="0" y="147" class="c-lbl">一般及行政</text><path d="M200,134H136Q132,134 132,138V146Q132,150 136,150H200Z" class="m-bar2"><title>一般及行政 同比 −17%</title></path><text x="126" y="147" class="c-val" text-anchor="end">−17%</text><line x1="0" y1="50" x2="400" y2="50" class="c-hair"/><line x1="200" y1="10" x2="200" y2="156" class="c-axis"/><text x="200" y="4" class="c-tick" text-anchor="middle" dominant-baseline="hanging">0</text></svg>
+        <figcaption>运营费用合计 $35.6B。原文只给出分项增速，未给分项金额。</figcaption>
+      </figure>
+      <aside class="note">
+        <h4>成本端在涨什么</h4>
+        <ul>
+          <li><b>其他收入成本 $35.1B（+32%）</b>：主要是 TPU 系统销售相关的硬件成本、折旧增加、内容采购成本和技术基础设施运营成本。</li>
+          <li><b>运营费用</b>：研发增长来自 AI 人才薪酬与折旧；销售和营销来自 Gemini 投入与薪酬；一般及行政下降，因去年同期法律费用高。</li>
+        </ul>
+        <h4>营业利润以下</h4>
+        <ul>
+          <li>其他收入和费用为 <span class="neg-text">−$8.2B</span>，主要是所投资的 SpaceX 在 Q3 股价下跌带来的未实现亏损。</li>
+          <li>因此净利润和每股收益同比下降。电话会未给出净利润与 EPS 的具体数值。</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="segments">
+  <div class="sec-head">
+    <h2><span class="sec-no">03</span>分部利润</h2>
+    <p class="thesis">Cloud 营业利润 $11.1B、利润率 36.2%，一年提升 12.5 个百分点（推算）；Q3 末已开始使用第三方算力、Q4 加大使用，利润率短期承压。</p>
+  </div>
+  <div class="grid-2">
+    <figure class="fig">
+      <div class="fig-head"><span class="unit">单位：US$ B（十亿美元）</span><h3><span class="fig-id">图 D</span>分部营业利润</h3></div>
+      <svg viewBox="0 0 400 262" role="img" aria-labelledby="cd-t cd-d"><title id="cd-t">图 D 分部营业利润</title><desc id="cd-d">Google 服务 $39.2B，Google Cloud $11.1B，其他业务 −$2.0B，Alphabet 层面 −$7.7B，合计 $40.6B。</desc><text x="0" y="30" class="c-name">Google 服务</text><text x="0" y="49" class="c-sub">+17% · 利润率 40.7%</text><path d="M200,26H348.9Q352.9,26 352.9,30V38Q352.9,42 348.9,42H200Z" class="m-bar"><title>Google 服务 $39.2B</title></path><text x="358.9" y="39" class="c-val">39.2</text><text x="0" y="76" class="c-name">Google Cloud</text><text x="0" y="95" class="c-sub">超 3 倍 · 利润率 36.2%</text><path d="M200,72H239.3Q243.3,72 243.3,76V84Q243.3,88 239.3,88H200Z" class="m-acc"><title>Google Cloud $11.1B</title></path><text x="249.3" y="85" class="c-val">11.1</text><text x="0" y="122" class="c-name">其他业务</text><text x="0" y="141" class="c-sub">Waymo 扩张等</text><path d="M200,118H196.2Q192.2,118 192.2,122V130Q192.2,134 196.2,134H200Z" class="m-neg"><title>其他业务 −$2.0B</title></path><text x="186.2" y="131" class="c-val" text-anchor="end">−2.0</text><text x="0" y="168" class="c-name">Alphabet 层面</text><text x="0" y="187" class="c-sub">共享 AI 研发</text><path d="M200,164H174Q170,164 170,168V176Q170,180 174,180H200Z" class="m-neg"><title>Alphabet 层面 −$7.7B</title></path><text x="164" y="177" class="c-val" text-anchor="end">−7.7</text><line x1="0" y1="202" x2="400" y2="202" class="c-hair"/><text x="0" y="224" class="c-name">合计营业利润</text><text x="0" y="243" class="c-sub">+30% · 利润率 31.8%</text><path d="M200,220H354.3Q358.3,220 358.3,224V232Q358.3,236 354.3,236H200Z" class="m-ink"><title>合计营业利润 $40.6B</title></path><text x="364.3" y="233" class="c-val">40.6</text><line x1="200" y1="8" x2="200" y2="256" class="c-axis"/><text x="200" y="4" class="c-tick" text-anchor="middle" dominant-baseline="hanging">0</text></svg>
+      <figcaption>其他业务收入 $372M、营业亏损 −$2.0B，来自 Waymo 扩张和对重点项目的投资；Alphabet 层面亏损 −$7.7B，主要是共享的 AI 研发费用。Cloud “超 3 倍”按译文括注“超过原来的 3 倍”。</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="fig-head"><span class="unit">%</span><h3><span class="fig-id">图 E</span>Cloud 营业利润率</h3></div>
+      <svg viewBox="0 0 400 252" role="img" aria-labelledby="ce-t ce-d"><title id="ce-t">图 E Cloud 营业利润率</title><desc id="ce-d">Google Cloud 营业利润率从 2025 年第三季度的 23.7% 升至 2026 年第三季度的 36.2%（推算提升 12.5 个百分点）；第四季度近期承压，仅示意方向。</desc><line x1="0" y1="220" x2="400" y2="220" class="c-grid"/><text x="0" y="215" class="c-tick">0</text><line x1="0" y1="130" x2="400" y2="130" class="c-grid"/><text x="0" y="125" class="c-tick">20%</text><line x1="0" y1="40" x2="400" y2="40" class="c-grid"/><text x="0" y="35" class="c-tick">40%</text><line x1="110" y1="113.4" x2="290" y2="57.1" class="c-line-acc"/><line x1="296" y1="62.1" x2="332" y2="88" class="c-line-proj"/><path d="M339,95 L326,91 L333,83 Z" class="m-flow"><title>Q4 近期承压：方向示意，无数值</title></path><circle cx="110" cy="113.4" r="5.5" class="m-dot"><title>Cloud 营业利润率 23.7%</title></circle><circle cx="290" cy="57.1" r="5.5" class="m-dot"><title>Cloud 营业利润率 36.2%</title></circle><text x="98" y="118.4" class="c-val" text-anchor="end">23.7%</text><text x="286" y="45.1" class="c-val" text-anchor="end">36.2%</text><text x="196" y="136" class="c-halo" text-anchor="middle">+12.5 个百分点（推算）</text><text x="400" y="116" class="c-halo" text-anchor="end">Q4 近期承压</text><text x="400" y="160" class="c-halo is-sub" text-anchor="end">（方向示意，无数值）</text><text x="110" y="244" class="c-name" text-anchor="middle">2025 Q3</text><text x="290" y="244" class="c-name" text-anchor="middle">2026 Q3</text></svg>
+      <figcaption>第三方过渡算力直到 Q3 末才上线，本季影响有限；Q4 将加大使用，CFO 预计近期利润率承压。虚线箭头只表示方向，原文没有给出数值。+12.5 个百分点为两期相减（推算）。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" id="cash">
+  <div class="sec-head">
+    <h2><span class="sec-no">04</span>现金流与资本开支</h2>
+    <p class="thesis">$42.3B 经营现金流覆盖不了 $51.4B 资本开支，单季自由现金流为 −$9.1B；过去 12 个月仍为正。</p>
+  </div>
+  <div class="grid-2">
+    <figure class="fig">
+      <div class="fig-head"><span class="unit">单位：US$ B（十亿美元）</span><h3><span class="fig-id">图 F</span>单季现金流桥</h3></div>
+      <svg viewBox="0 0 400 400" role="img" aria-labelledby="cf-t cf-d"><title id="cf-t">图 F 单季现金流桥</title><desc id="cf-d">经营现金流 $42.3B 减资本开支 $51.4B，自由现金流 −$9.1B。</desc><line x1="0" y1="300" x2="400" y2="300" class="c-axis"/><text x="0" y="294" class="c-tick">0</text><path d="M42,300V71.4Q42,67.4 46,67.4H94Q98,67.4 98,71.4V300Z" class="m-bar"><title>经营现金流 $42.3B</title></path><text x="70" y="59.4" class="c-val" text-anchor="middle">42.3</text><line x1="98" y1="67.4" x2="172" y2="67.4" class="c-conn"/><rect x="172" y="67.4" width="56" height="282.7" rx="3" class="m-bar2"><title>资本开支 −$51.4B</title></rect><text x="236" y="212" class="c-val">−51.4</text><line x1="228" y1="350.1" x2="302" y2="350.1" class="c-conn"/><path d="M302,300V346.1Q302,350.1 306,350.1H354Q358,350.1 358,346.1V300Z" class="m-neg"><title>自由现金流 −$9.1B</title></path><text x="330" y="368.1" class="c-val" text-anchor="middle">−9.1</text><text x="70" y="392" class="c-name" text-anchor="middle">经营现金流</text><text x="200" y="392" class="c-name" text-anchor="middle">资本开支</text><text x="330" y="392" class="c-name" text-anchor="middle">自由现金流</text></svg>
+      <figcaption>经营现金流本身已被两项拖累：上诉程序结束后支付的 2018 年欧盟委员会罚款 $5.2B，以及为 TPU 系统销售备货而增加的库存。</figcaption>
+    </figure>
+    <div class="stack">
+      <figure class="fig">
+        <div class="fig-head"><span class="unit">单位：US$ B（十亿美元）</span><h3><span class="fig-id">图 G</span>Q3 技术基础设施投资去向 · 资本开支指引</h3></div>
+        <svg viewBox="0 0 400 254" role="img" aria-labelledby="cg-t cg-d"><title id="cg-t">图 G Q3 技术基础设施投资去向 · 资本开支指引</title><desc id="cg-d">Q3 技术基础设施投资约 65% 用于服务器与网络、35% 用于数据中心；Q3 资本开支 $51.4B；2026 全年资本开支指引 $195–205B 不变，2027 年大幅增加。</desc><text x="0" y="16" class="c-sub">去向占比</text><text x="0" y="42" class="c-name">65% 服务器与网络</text><text x="261" y="42" class="c-name">35% 数据中心</text><path d="M0,52H259Q259,52 259,52V74Q259,74 259,74H0Z" class="m-bar"><title>服务器与网络设备 约 65%，寿命一般 6 年</title></path><path d="M261,52H400Q400,52 400,52V74Q400,74 400,74H261Z" class="m-bar2"><title>数据中心 约 35%，寿命 7–40 年</title></path><text x="0" y="96" class="c-sub">使用寿命一般 6 年</text><text x="261" y="96" class="c-sub">7–40 年</text><line x1="0" y1="116" x2="400" y2="116" class="c-hair"/><line x1="0" y1="132" x2="0" y2="230" class="c-grid"/><text x="0" y="248" class="c-tick">0</text><line x1="160" y1="132" x2="160" y2="230" class="c-grid"/><text x="160" y="248" class="c-tick" text-anchor="middle">100</text><line x1="320" y1="132" x2="320" y2="230" class="c-grid"/><text x="320" y="248" class="c-tick" text-anchor="middle">200</text><text x="0" y="148" class="c-name">Q3 单季资本开支</text><path d="M0,156H78.2Q82.2,156 82.2,160V168Q82.2,172 78.2,172H0Z" class="m-bar"><title>Q3 资本开支 $51.4B</title></path><text x="88.2" y="169" class="c-val">51.4</text><text x="0" y="196" class="c-name">2026 全年指引（不变）</text><rect x="312" y="204" width="16" height="16" rx="2" class="m-ink"><title>2026 全年资本开支指引 $195–205B</title></rect><text x="306" y="217" class="c-val" text-anchor="end">195–205</text><line x1="332" y1="212" x2="392" y2="212" class="c-line-proj"/><path d="M390,206 L400,212 L390,218 Z" class="m-ink"/><text x="400" y="196" class="c-name" text-anchor="end">2027 大幅增加</text></svg>
+        <figcaption>资本开支绝大部分用于技术基础设施。2027 年箭头只表示方向，具体数字将在 Q4 电话会给出。</figcaption>
+      </figure>
+      <aside class="note">
+        <h4>过去 12 个月</h4>
+        <div class="pairs">
+          <div class="pair"><div class="p-label">经营现金流</div><div class="p-value">$179.6B</div></div>
+          <div class="pair"><div class="p-label">自由现金流</div><div class="p-value">$19.7B</div></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="balance">
+  <div class="sec-head">
+    <h2><span class="sec-no">05</span>资产负债与长期承诺</h2>
+    <p class="thesis">$924B 采购承诺和 $561B Cloud 积压订单，量级都远超 $265.1B 现金及有价证券。</p>
+  </div>
+  <div class="grid-note">
+    <figure class="fig">
+      <div class="fig-head"><span class="unit">单位：US$ B（十亿美元）</span><h3><span class="fig-id">图 H</span>同一尺度下的五个存量</h3></div>
+      <svg viewBox="0 0 400 330" role="img" aria-labelledby="ch-t ch-d"><title id="ch-t">图 H 长期承诺与资产负债</title><desc id="ch-d">未来采购承诺 $924B，Cloud 积压订单 $561B，现金及有价证券 $265.1B（其中有价权益证券 $90.4B），尚未起租租赁及其他义务 $152B，长期债务 $125.1B。</desc><line x1="0" y1="304" x2="400" y2="304" class="c-axis"/><line x1="0" y1="304" x2="0" y2="310" class="c-axis"/><text x="0" y="326" class="c-tick">0</text><line x1="107.1" y1="304" x2="107.1" y2="310" class="c-axis"/><text x="107.1" y="326" class="c-tick" text-anchor="middle">250</text><line x1="214.3" y1="304" x2="214.3" y2="310" class="c-axis"/><text x="214.3" y="326" class="c-tick" text-anchor="middle">500</text><line x1="321.4" y1="304" x2="321.4" y2="310" class="c-axis"/><text x="321.4" y="326" class="c-tick" text-anchor="middle">750</text><text x="0" y="16" class="c-name">未来采购承诺<tspan class="c-sub" dx="8">义务</tspan></text><text x="400" y="16" class="c-val" text-anchor="end">924</text><path d="M0,24H392Q396,24 396,28V38Q396,42 392,42H0Z" class="m-bar2"><title>未来采购承诺 $924B</title></path><text x="0" y="68" class="c-name">Google Cloud 积压订单<tspan class="c-sub" dx="8">合同收入</tspan></text><text x="400" y="68" class="c-val" text-anchor="end">561</text><path d="M0,76H131.2Q131.2,76 131.2,76V94Q131.2,94 131.2,94H0Z" class="m-acc"><title>Google Cloud 积压订单：略高于 55% 预计 24 个月内确认</title></path><path d="M133.2,76H236.4Q240.4,76 240.4,80V90Q240.4,94 236.4,94H133.2Z" class="m-acc2"><title>Google Cloud 积压订单 $561B</title></path><text x="0" y="113" class="c-sub">左段：略高于 55% 预计 24 个月内确认</text><text x="0" y="138" class="c-name">现金及有价证券<tspan class="c-sub" dx="8">资产</tspan></text><text x="400" y="138" class="c-val" text-anchor="end">265.1</text><path d="M0,146H37.7Q37.7,146 37.7,146V164Q37.7,164 37.7,164H0Z" class="m-bar"><title>其中有价权益证券 $90.4B</title></path><path d="M39.7,146H109.6Q113.6,146 113.6,150V160Q113.6,164 109.6,164H39.7Z" class="m-bar"><title>现金及有价证券 $265.1B</title></path><text x="0" y="183" class="c-sub">左段：其中有价权益证券 90.4</text><text x="0" y="208" class="c-name">尚未起租的租赁及其他义务<tspan class="c-sub" dx="8">义务</tspan></text><text x="400" y="208" class="c-val" text-anchor="end">152</text><path d="M0,216H61.1Q65.1,216 65.1,220V230Q65.1,234 61.1,234H0Z" class="m-bar2"><title>尚未起租的租赁及其他义务 $152B</title></path><text x="0" y="260" class="c-name">长期债务<tspan class="c-sub" dx="8">义务</tspan></text><text x="400" y="260" class="c-val" text-anchor="end">125.1</text><path d="M0,268H49.6Q53.6,268 53.6,272V282Q53.6,286 49.6,286H0Z" class="m-bar2"><title>长期债务 $125.1B</title></path></svg>
+      <figcaption>五根条使用同一比例尺，左起为 0。</figcaption>
+    </figure>
+    <aside class="note">
+      <h4>读这张图要注意</h4>
+      <ul>
+        <li>采购承诺用于锁定技术基础设施和库存的产能，以及租赁和能源。$924B 与 $152B 是<b>合同规定的最高义务</b>；不少协议价格可变、数量有弹性，实际支出可能更低。</li>
+        <li>原文 “$924 billion in pre-commencement leases” 中的 “in”，译者判断为转录错误，按语义应为两项并列，本页按并列处理。</li>
+        <li>现金及有价证券 $265.1B 中，有价权益证券占 $90.4B；长期债务 $125.1B。</li>
+        <li>积压订单中大部分是常规 GCP 合同。</li>
+      </ul>
+      <h4>几个对照数</h4>
+      <div class="pairs">
+        <div class="pair"><div class="p-label">季度现金股息（12 月支付）</div><div class="p-value">$0.22 / 股</div></div>
+        <div class="pair"><div class="p-label">积压订单 24 个月内确认</div><div class="p-value">略高于 55%</div></div>
+        <div class="pair"><div class="p-label">采购承诺 ÷ 现金及有价证券（推算）</div><div class="p-value">约 3.5 倍</div></div>
+        <div class="pair"><div class="p-label">积压订单 ÷ 现金及有价证券（推算）</div><div class="p-value">约 2.1 倍</div></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="sec" id="tpu">
+  <div class="sec-head">
+    <h2><span class="sec-no">06</span>TPU 系统销售的现金周期</h2>
+    <p class="thesis">TPU 系统是先垫钱备货、后开票回款的生意，库存和现金流出会先于收入出现。</p>
+  </div>
+  <div class="grid-note">
+    <figure class="fig">
+      <div class="fig-head"><span class="unit">流程示意</span><h3><span class="fig-id">图 I</span>从签约到确认收入</h3></div>
+      <svg viewBox="0 0 400 410" role="img" aria-labelledby="ci-t ci-d"><title id="ci-t">图 I TPU 系统销售的现金周期</title><desc id="ci-d">签约、进入积压订单、采购零部件备货（现金流出）、交付并开票（现金流入）、确认收入。流程按原文归纳。</desc><rect x="0" y="0" width="262" height="60" rx="6" class="m-box"/><circle cx="20" cy="24" r="11" class="m-ink"/><text x="20" y="29" class="c-num" text-anchor="middle">1</text><text x="42" y="29" class="c-name">签约</text><text x="42" y="50" class="c-sub">与客户签署 TPU 系统协议</text><line x1="131" y1="63" x2="131" y2="74" class="c-flow"/><path d="M126,73 L136,73 L131,80 Z" class="m-flow"/><rect x="0" y="82" width="262" height="60" rx="6" class="m-box"/><circle cx="20" cy="106" r="11" class="m-ink"/><text x="20" y="111" class="c-num" text-anchor="middle">2</text><text x="42" y="111" class="c-name">进入积压订单</text><text x="42" y="132" class="c-sub">先体现在 Cloud 积压订单中</text><line x1="282" y1="112" x2="296" y2="112" class="c-conn"/><text x="302" y="117" class="c-sub">计入积压</text><line x1="131" y1="145" x2="131" y2="156" class="c-flow"/><path d="M126,155 L136,155 L131,162 Z" class="m-flow"/><rect x="0" y="164" width="262" height="80" rx="6" class="m-box"/><circle cx="20" cy="188" r="11" class="m-ink"/><text x="20" y="193" class="c-num" text-anchor="middle">3</text><text x="42" y="193" class="c-name">采购零部件备货</text><text x="42" y="214" class="c-sub">仅在签约后才备货</text><text x="42" y="234" class="c-sub">库存均对应已承诺合同</text><path d="M282,196 L296,196 L289,206 Z" class="m-neg"/><text x="302" y="203" class="c-name">现金流出</text><text x="302" y="223" class="c-sub">库存上升</text><line x1="131" y1="247" x2="131" y2="258" class="c-flow"/><path d="M126,257 L136,257 L131,264 Z" class="m-flow"/><rect x="0" y="266" width="262" height="60" rx="6" class="m-box"/><circle cx="20" cy="290" r="11" class="m-ink"/><text x="20" y="295" class="c-num" text-anchor="middle">4</text><text x="42" y="295" class="c-name">交付并开票</text><text x="42" y="316" class="c-sub">向客户交付 TPU 系统</text><path d="M282,300 L296,300 L289,290 Z" class="m-pos"/><text x="302" y="301" class="c-name">现金流入</text><line x1="131" y1="329" x2="131" y2="340" class="c-flow"/><path d="M126,339 L136,339 L131,346 Z" class="m-flow"/><rect x="0" y="348" width="262" height="60" rx="6" class="m-box"/><circle cx="20" cy="372" r="11" class="m-ink"/><text x="20" y="377" class="c-num" text-anchor="middle">5</text><text x="42" y="377" class="c-name">确认收入</text><text x="42" y="398" class="c-sub">部分已确认，更多在 2027 年</text><line x1="282" y1="378" x2="296" y2="378" class="c-conn"/><text x="302" y="383" class="c-sub">计入收入</text><line x1="274" y1="0" x2="274" y2="408" class="c-hair"/></svg>
+      <figcaption>依据 CFO 回答巴克莱 Ross Sandler 的问题，以及 Thomas Kurian 对备货条件的补充（流程按原文归纳）。</figcaption>
+    </figure>
+    <aside class="note">
+      <p class="quote is-lead">这不是你所理解的传统意义上的资本开支，而是一种不同的现金流产生周期。<cite>Anat Ashkenazi，CFO（译文原话）</cite></p>
+      <h4>产品与软件</h4>
+      <ul>
+        <li>TPU 8t 训练性能最高为上一代的 2.7 倍；TPU 8i 推理性价比提升 80%。</li>
+        <li>TorchTPU：与 Meta 密切合作推出，PyTorch 模型可直接在 TPU 上训练、服务和部署。</li>
+        <li>近 100 家客户在使用 TPU（问答中 Kurian 另称有 100 多家重要 TPU 客户从云上起步）。</li>
+      </ul>
+      <h4>三层分销渠道</h4>
+      <ul>
+        <li>Google Cloud 上使用</li>
+        <li>部署到客户自有数据中心</li>
+        <li>第三方：甲骨文；与黑石达成协议的合资企业 Crux AI</li>
+      </ul>
+      <h4>点名客户</h4>
+      <ul class="chips">
+        <li>Anthropic（直接及经博通）</li><li>苹果</li><li>Mirendil</li><li>Physical Intelligence</li>
+        <li>Citadel Securities</li><li>Jump Trading</li><li>加州理工学院</li><li>Cassava</li><li>Cirrascale</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="sec" id="ai">
+  <div class="sec-head">
+    <h2><span class="sec-no">07</span>AI 势头</h2>
+    <p class="thesis">第一方模型 API 每分钟处理近 320 亿 token，是一年前的四倍多；模型、消费者、广告、Cloud 全线放量。</p>
+  </div>
+  <div class="grid-2">
+    <figure class="fig">
+      <div class="fig-head"><span class="unit">每分钟 token</span><h3><span class="fig-id">图 J</span>第一方模型 API 处理量</h3></div>
+      <svg viewBox="0 0 400 370" role="img" aria-labelledby="cj-t cj-d"><title id="cj-t">图 J 第一方模型 API token 处理量</title><desc id="cj-d">每分钟 token 数：本季度近 320 亿；上季度按 +40% 推算约 229 亿；一年前按四倍多推算低于 80 亿。</desc><line x1="0" y1="320" x2="400" y2="320" class="c-axis"/><path d="M52,320V260Q52,256 56,256H104Q108,256 108,260V320Z" class="m-est"><title>一年前：按“四倍多”推算，低于 80 亿</title></path><path d="M172,320V141.1Q172,137.1 176,137.1H224Q228,137.1 228,141.1V320Z" class="m-est"><title>上季度：按 +40% 推算，约 229 亿</title></path><path d="M292,320V68Q292,64 296,64H344Q348,64 348,68V320Z" class="m-bar"><title>本季度：近 320 亿</title></path><text x="80" y="248" class="c-val" text-anchor="middle">&lt;80 亿</text><text x="200" y="129.1" class="c-val" text-anchor="middle">约 229 亿</text><text x="320" y="56" class="c-val" text-anchor="middle">近 320 亿</text><text x="260" y="194.4" class="c-name" text-anchor="middle">+40%</text><text x="80" y="342" class="c-name" text-anchor="middle">一年前</text><text x="80" y="362" class="c-sub" text-anchor="middle">按“4 倍多”推算</text><text x="200" y="342" class="c-name" text-anchor="middle">上季度</text><text x="200" y="362" class="c-sub" text-anchor="middle">按 +40% 推算</text><text x="320" y="342" class="c-name" text-anchor="middle">本季度</text><text x="320" y="362" class="c-sub" text-anchor="middle">原文</text></svg>
+      <figcaption><span class="est-key" aria-hidden="true"></span>虚线浅色柱为按原文倍数推算：上季度 ≈ 320 ÷ 1.4 ≈ 229 亿；一年前 = 320 ÷ “四倍多”，即低于 80 亿。</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="fig-head"><span class="unit">× · 对比各自基准</span><h3><span class="fig-id">图 L</span>倍数</h3></div>
+      <svg viewBox="0 0 400 388" role="img" aria-labelledby="cl-t cl-d"><title id="cl-t">图 L 倍数</title><desc id="cl-d">Gemini 生成广告素材同比 7 倍以上；第一方模型 API token 处理量较一年前 4 倍多；Argon 首周使用量爬升速度为 Gemini 3 的 3.5 倍；AI 模式查询长度为传统搜索 3 倍；TPU 8t 训练性能最高为上一代 2.7 倍；Gemini Flash 网络安全模型修补可靠性为其他模型 2.6 倍；Wayfair Demand Gen ROAS 为传统视频覆盖类广告 2.3 倍。</desc><circle cx="6" cy="11" r="5" class="f-d-ads"/><text x="16" y="16" class="c-lbl">广告</text><circle cx="66" cy="11" r="5" class="f-d-model"/><text x="76" y="16" class="c-lbl">模型</text><circle cx="126" cy="11" r="5" class="f-d-search"/><text x="136" y="16" class="c-lbl">搜索</text><circle cx="186" cy="11" r="5" class="f-d-cloud"/><text x="196" y="16" class="c-lbl">Cloud·基础设施</text><line x1="6" y1="358" x2="358" y2="358" class="c-axis"/><line x1="6" y1="358" x2="6" y2="363" class="c-axis"/><text x="6" y="380" class="c-tick" text-anchor="middle">0</text><line x1="50" y1="358" x2="50" y2="363" class="c-axis"/><text x="50" y="380" class="c-tick" text-anchor="middle">1×</text><line x1="94" y1="358" x2="94" y2="363" class="c-axis"/><text x="94" y="380" class="c-tick" text-anchor="middle">2×</text><line x1="182" y1="358" x2="182" y2="363" class="c-axis"/><text x="182" y="380" class="c-tick" text-anchor="middle">4×</text><line x1="270" y1="358" x2="270" y2="363" class="c-axis"/><text x="270" y="380" class="c-tick" text-anchor="middle">6×</text><line x1="358" y1="358" x2="358" y2="363" class="c-axis"/><text x="358" y="380" class="c-tick" text-anchor="middle">8×</text><line x1="6" y1="58" x2="6" y2="76" class="c-grid"/><line x1="94" y1="58" x2="94" y2="76" class="c-grid"/><line x1="182" y1="58" x2="182" y2="76" class="c-grid"/><line x1="270" y1="58" x2="270" y2="76" class="c-grid"/><line x1="358" y1="58" x2="358" y2="76" class="c-grid"/><line x1="50" y1="57" x2="50" y2="77" class="c-ref"/><text x="0" y="50" class="c-lbl">Gemini 帮助生成的广告素材（Q3），同比</text><line x1="50" y1="67" x2="314" y2="67" class="s-d-ads"/><circle cx="314" cy="67" r="5" class="o-d-ads"><title>Gemini 帮助生成的广告素材（Q3），同比：7×+（原文为“以上”，实际可能更大）</title></circle><path d="M322,62 L330,67 L322,72 Z" class="f-d-ads"/><text x="336" y="72" class="c-val">7×+</text><line x1="6" y1="104" x2="6" y2="122" class="c-grid"/><line x1="94" y1="104" x2="94" y2="122" class="c-grid"/><line x1="182" y1="104" x2="182" y2="122" class="c-grid"/><line x1="270" y1="104" x2="270" y2="122" class="c-grid"/><line x1="358" y1="104" x2="358" y2="122" class="c-grid"/><line x1="50" y1="103" x2="50" y2="123" class="c-ref"/><text x="0" y="96" class="c-lbl">第一方模型 API token 处理量，较一年前</text><line x1="50" y1="113" x2="182" y2="113" class="s-d-model"/><circle cx="182" cy="113" r="5" class="o-d-model"><title>第一方模型 API token 处理量，较一年前：4×+（原文为“以上”，实际可能更大）</title></circle><path d="M190,108 L198,113 L190,118 Z" class="f-d-model"/><text x="204" y="118" class="c-val">4×+</text><line x1="6" y1="150" x2="6" y2="168" class="c-grid"/><line x1="94" y1="150" x2="94" y2="168" class="c-grid"/><line x1="182" y1="150" x2="182" y2="168" class="c-grid"/><line x1="270" y1="150" x2="270" y2="168" class="c-grid"/><line x1="358" y1="150" x2="358" y2="168" class="c-grid"/><line x1="50" y1="149" x2="50" y2="169" class="c-ref"/><text x="0" y="142" class="c-lbl">Argon 首周使用量爬升速度，对比 Gemini 3（产能受限）</text><line x1="50" y1="159" x2="160" y2="159" class="s-d-model"/><circle cx="160" cy="159" r="5.5" class="f-d-model ring"><title>Argon 首周使用量爬升速度，对比 Gemini 3（产能受限）：3.5×</title></circle><text x="172" y="164" class="c-val">3.5×</text><line x1="6" y1="196" x2="6" y2="214" class="c-grid"/><line x1="94" y1="196" x2="94" y2="214" class="c-grid"/><line x1="182" y1="196" x2="182" y2="214" class="c-grid"/><line x1="270" y1="196" x2="270" y2="214" class="c-grid"/><line x1="358" y1="196" x2="358" y2="214" class="c-grid"/><line x1="50" y1="195" x2="50" y2="215" class="c-ref"/><text x="0" y="188" class="c-lbl">AI 模式查询平均长度，对比传统搜索</text><line x1="50" y1="205" x2="138" y2="205" class="s-d-search"/><circle cx="138" cy="205" r="5.5" class="f-d-search ring"><title>AI 模式查询平均长度，对比传统搜索：3×</title></circle><text x="150" y="210" class="c-val">3×</text><line x1="6" y1="242" x2="6" y2="260" class="c-grid"/><line x1="94" y1="242" x2="94" y2="260" class="c-grid"/><line x1="182" y1="242" x2="182" y2="260" class="c-grid"/><line x1="270" y1="242" x2="270" y2="260" class="c-grid"/><line x1="358" y1="242" x2="358" y2="260" class="c-grid"/><line x1="50" y1="241" x2="50" y2="261" class="c-ref"/><text x="0" y="234" class="c-lbl">TPU 8t 训练性能，对比上一代（最高）</text><line x1="50" y1="251" x2="124.8" y2="251" class="s-d-cloud"/><circle cx="124.8" cy="251" r="5.5" class="f-d-cloud ring"><title>TPU 8t 训练性能，对比上一代（最高）：2.7×</title></circle><text x="136.8" y="256" class="c-val">2.7×</text><line x1="6" y1="288" x2="6" y2="306" class="c-grid"/><line x1="94" y1="288" x2="94" y2="306" class="c-grid"/><line x1="182" y1="288" x2="182" y2="306" class="c-grid"/><line x1="270" y1="288" x2="270" y2="306" class="c-grid"/><line x1="358" y1="288" x2="358" y2="306" class="c-grid"/><line x1="50" y1="287" x2="50" y2="307" class="c-ref"/><text x="0" y="280" class="c-lbl">Gemini Flash 网络安全模型修补可靠性，对比其他模型</text><line x1="50" y1="297" x2="120.4" y2="297" class="s-d-cloud"/><circle cx="120.4" cy="297" r="5.5" class="f-d-cloud ring"><title>Gemini Flash 网络安全模型修补可靠性，对比其他模型：2.6×</title></circle><text x="132.4" y="302" class="c-val">2.6×</text><line x1="6" y1="334" x2="6" y2="352" class="c-grid"/><line x1="94" y1="334" x2="94" y2="352" class="c-grid"/><line x1="182" y1="334" x2="182" y2="352" class="c-grid"/><line x1="270" y1="334" x2="270" y2="352" class="c-grid"/><line x1="358" y1="334" x2="358" y2="352" class="c-grid"/><line x1="50" y1="333" x2="50" y2="353" class="c-ref"/><text x="0" y="326" class="c-lbl">Wayfair Demand Gen 的 ROAS，对比传统视频覆盖类广告</text><line x1="50" y1="343" x2="107.2" y2="343" class="s-d-ads"/><circle cx="107.2" cy="343" r="5.5" class="f-d-ads ring"><title>Wayfair Demand Gen 的 ROAS，对比传统视频覆盖类广告：2.3×</title></circle><text x="119.2" y="348" class="c-val">2.3×</text></svg>
+      <figcaption>各项口径不同（有的是单个客户案例，有的是产品整体指标），只用来看幅度，不宜横向比较。开口圆点加箭头表示原文为“以上”或“多”，实际可能更大；竖线为 1×。</figcaption>
+    </figure>
+  </div>
+  <div class="grid-2">
+    <figure class="fig">
+      <div class="fig-head"><span class="unit">%</span><h3><span class="fig-id">图 M</span>改善幅度</h3></div>
+      <svg viewBox="0 0 400 444" role="img" aria-labelledby="cm-t cm-d"><title id="cm-t">图 M 改善幅度</title><desc id="cm-d">商品列表广告：用户满意度 +19%，不满意度下降一半以上；Discover 广告：广告主增量价值 +18%，用户好感度 +8%；Telstra：转化量 +52%，单笔订单成本 −36%；Argon 内部使用：提交代码 +35%，错误 −30%；BigQuery：查询速度提升 40% 以上，查询处理成本下降 50% 以上。负值均为下降，即改善。</desc><text x="200" y="4" class="c-tick" text-anchor="middle" dominant-baseline="hanging">0</text><circle cx="5" cy="35" r="5" class="f-d-ads"/><text x="15" y="40" class="c-name">商品列表广告（十年来最大更新）<tspan class="c-sub" dx="6">广告</tspan></text><line x1="200" y1="48" x2="200" y2="98" class="c-axis"/><path d="M200,54H243.5Q247.5,54 247.5,58V64Q247.5,68 243.5,68H200Z" class="f-d-ads"><title>商品列表广告（十年来最大更新）：用户满意度 +19%</title></path><text x="192" y="66" class="c-lbl" text-anchor="end">用户满意度</text><text x="253.5" y="66" class="c-val">+19%</text><path d="M200,78H79Q75,78 75,82V88Q75,92 79,92H200Z" class="f-d-ads"><title>商品列表广告（十年来最大更新）：不满意度 −50%+（原文为“以上”）</title></path><text x="208" y="90" class="c-lbl">不满意度</text><path d="M72,80 L64,85 L72,90 Z" class="f-d-ads"/><text x="58" y="90" class="c-val" text-anchor="end">−50%+</text><circle cx="5" cy="119" r="5" class="f-d-ads"/><text x="15" y="124" class="c-name">Discover 广告<tspan class="c-sub" dx="6">广告</tspan></text><line x1="200" y1="132" x2="200" y2="182" class="c-axis"/><path d="M200,138H241Q245,138 245,142V148Q245,152 241,152H200Z" class="f-d-ads"><title>Discover 广告：广告主增量价值 +18%</title></path><text x="192" y="150" class="c-lbl" text-anchor="end">广告主增量价值</text><text x="251" y="150" class="c-val">+18%</text><path d="M200,162H216Q220,162 220,166V172Q220,176 216,176H200Z" class="f-d-ads"><title>Discover 广告：用户好感度 +8%</title></path><text x="192" y="174" class="c-lbl" text-anchor="end">用户好感度</text><text x="226" y="174" class="c-val">+8%</text><circle cx="5" cy="203" r="5" class="f-d-ads"/><text x="15" y="208" class="c-name">Telstra 用 AI Max<tspan class="c-sub" dx="6">广告</tspan></text><line x1="200" y1="216" x2="200" y2="266" class="c-axis"/><path d="M200,222H326Q330,222 330,226V232Q330,236 326,236H200Z" class="f-d-ads"><title>Telstra 用 AI Max：转化量 +52%</title></path><text x="192" y="234" class="c-lbl" text-anchor="end">转化量</text><text x="336" y="234" class="c-val">+52%</text><path d="M200,246H114Q110,246 110,250V256Q110,260 114,260H200Z" class="f-d-ads"><title>Telstra 用 AI Max：单笔订单成本 −36%</title></path><text x="208" y="258" class="c-lbl">单笔订单成本</text><text x="104" y="258" class="c-val" text-anchor="end">−36%</text><circle cx="5" cy="287" r="5" class="f-d-model"/><text x="15" y="292" class="c-name">Google 内部团队用 Argon<tspan class="c-sub" dx="6">模型</tspan></text><line x1="200" y1="300" x2="200" y2="350" class="c-axis"/><path d="M200,306H283.5Q287.5,306 287.5,310V316Q287.5,320 283.5,320H200Z" class="f-d-model"><title>Google 内部团队用 Argon：提交代码 +35%</title></path><text x="192" y="318" class="c-lbl" text-anchor="end">提交代码</text><text x="293.5" y="318" class="c-val">+35%</text><path d="M200,330H129Q125,330 125,334V340Q125,344 129,344H200Z" class="f-d-model"><title>Google 内部团队用 Argon：错误 −30%</title></path><text x="208" y="342" class="c-lbl">错误</text><text x="119" y="342" class="c-val" text-anchor="end">−30%</text><circle cx="5" cy="371" r="5" class="f-d-cloud"/><text x="15" y="376" class="c-name">BigQuery<tspan class="c-sub" dx="6">Cloud·基础设施</tspan></text><line x1="200" y1="384" x2="200" y2="434" class="c-axis"/><path d="M200,390H296Q300,390 300,394V400Q300,404 296,404H200Z" class="f-d-cloud"><title>BigQuery：查询速度 +40%+（原文为“以上”）</title></path><text x="192" y="402" class="c-lbl" text-anchor="end">查询速度</text><path d="M303,392 L311,397 L303,402 Z" class="f-d-cloud"/><text x="317" y="402" class="c-val">+40%+</text><path d="M200,414H79Q75,414 75,418V424Q75,428 79,428H200Z" class="f-d-cloud"><title>BigQuery：查询处理成本 −50%+（原文为“以上”）</title></path><text x="208" y="426" class="c-lbl">查询处理成本</text><path d="M72,416 L64,421 L72,426 Z" class="f-d-cloud"/><text x="58" y="426" class="c-val" text-anchor="end">−50%+</text></svg>
+      <figcaption>负值项均为成本、错误或不满意度的下降，即改善。颜色按领域区分，不按正负；带箭头的条表示原文为“以上”。</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="fig-head"><span class="unit">%</span><h3><span class="fig-id">图 N</span>渗透率</h3></div>
+      <svg viewBox="0 0 400 468" role="img" aria-labelledby="cn-t cn-d"><title id="cn-t">图 N 渗透率</title><desc id="cn-d">Wiz 客户超过 95% 在采用 AI 功能；近 90% 的财富 100 强在用 Gemini Enterprise；客厅场景占 YouTube 广告收入三分之一以上；每五次 AI 模式搜索有一次使用语音、图片或文档。</desc><circle cx="6" cy="11" r="5" class="f-d-cloud"/><text x="16" y="16" class="c-lbl">Cloud·基础设施</text><circle cx="147.0" cy="11" r="5" class="f-d-ads"/><text x="157" y="16" class="c-lbl">广告</text><circle cx="207.0" cy="11" r="5" class="f-d-search"/><text x="217" y="16" class="c-lbl">搜索</text><rect x="0" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="14" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="28" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="42" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="56" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="70" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="84" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="98" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="112" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="126" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="0" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="14" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="28" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="42" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="56" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="70" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="84" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="98" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="112" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="126" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="0" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="14" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="28" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="42" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="56" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="70" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="84" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="98" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="112" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="126" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="0" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="14" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="28" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="42" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="56" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="70" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="84" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="98" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="112" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="126" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="0" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="14" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="28" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="42" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="56" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="70" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="84" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="98" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="112" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="126" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="0" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="14" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="28" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="42" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="56" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="70" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="84" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="98" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="112" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="126" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="0" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="14" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="28" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="42" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="56" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="70" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="84" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="98" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="112" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="126" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="0" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="14" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="28" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="42" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="56" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="70" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="84" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="98" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="112" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="126" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="0" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="14" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="28" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="42" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="56" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="70" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="84" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="98" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="112" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="126" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="0" y="156" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="14" y="156" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="28" y="156" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="42" y="156" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="56" y="156" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="70" y="156" width="12" height="12" rx="2" class="f-empty"/><rect x="84" y="156" width="12" height="12" rx="2" class="f-empty"/><rect x="98" y="156" width="12" height="12" rx="2" class="f-empty"/><rect x="112" y="156" width="12" height="12" rx="2" class="f-empty"/><rect x="126" y="156" width="12" height="12" rx="2" class="f-empty"/><rect x="0" y="30" width="138" height="138" class="f-none"><title>Wiz 客户在采用AI 功能：95%+</title></rect><text x="0" y="194" class="c-big">95%+</text><text x="0" y="216" class="c-lbl">Wiz 客户在采用</text><text x="0" y="236" class="c-lbl">AI 功能</text><rect x="210" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="224" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="238" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="252" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="266" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="280" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="294" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="308" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="322" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="336" y="30" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="210" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="224" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="238" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="252" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="266" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="280" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="294" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="308" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="322" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="336" y="44" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="210" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="224" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="238" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="252" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="266" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="280" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="294" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="308" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="322" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="336" y="58" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="210" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="224" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="238" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="252" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="266" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="280" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="294" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="308" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="322" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="336" y="72" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="210" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="224" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="238" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="252" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="266" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="280" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="294" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="308" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="322" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="336" y="86" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="210" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="224" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="238" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="252" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="266" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="280" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="294" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="308" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="322" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="336" y="100" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="210" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="224" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="238" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="252" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="266" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="280" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="294" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="308" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="322" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="336" y="114" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="210" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="224" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="238" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="252" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="266" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="280" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="294" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="308" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="322" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="336" y="128" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="210" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="224" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="238" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="252" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="266" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="280" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="294" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="308" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="322" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="336" y="142" width="12" height="12" rx="2" class="f-d-cloud"/><rect x="210" y="156" width="12" height="12" rx="2" class="f-empty"/><rect x="224" y="156" width="12" height="12" rx="2" class="f-empty"/><rect x="238" y="156" width="12" height="12" rx="2" class="f-empty"/><rect x="252" y="156" width="12" height="12" rx="2" class="f-empty"/><rect x="266" y="156" width="12" height="12" rx="2" class="f-empty"/><rect x="280" y="156" width="12" height="12" rx="2" class="f-empty"/><rect x="294" y="156" width="12" height="12" rx="2" class="f-empty"/><rect x="308" y="156" width="12" height="12" rx="2" class="f-empty"/><rect x="322" y="156" width="12" height="12" rx="2" class="f-empty"/><rect x="336" y="156" width="12" height="12" rx="2" class="f-empty"/><rect x="210" y="30" width="138" height="138" class="f-none"><title>财富 100 强在用Gemini Enterprise：近 90%</title></rect><text x="210" y="194" class="c-big">近 90%</text><text x="210" y="216" class="c-lbl">财富 100 强在用</text><text x="210" y="236" class="c-lbl">Gemini Enterprise</text><rect x="0" y="256" width="12" height="12" rx="2" class="f-d-ads"/><rect x="14" y="256" width="12" height="12" rx="2" class="f-d-ads"/><rect x="28" y="256" width="12" height="12" rx="2" class="f-d-ads"/><rect x="42" y="256" width="12" height="12" rx="2" class="f-d-ads"/><rect x="56" y="256" width="12" height="12" rx="2" class="f-d-ads"/><rect x="70" y="256" width="12" height="12" rx="2" class="f-d-ads"/><rect x="84" y="256" width="12" height="12" rx="2" class="f-d-ads"/><rect x="98" y="256" width="12" height="12" rx="2" class="f-d-ads"/><rect x="112" y="256" width="12" height="12" rx="2" class="f-d-ads"/><rect x="126" y="256" width="12" height="12" rx="2" class="f-d-ads"/><rect x="0" y="270" width="12" height="12" rx="2" class="f-d-ads"/><rect x="14" y="270" width="12" height="12" rx="2" class="f-d-ads"/><rect x="28" y="270" width="12" height="12" rx="2" class="f-d-ads"/><rect x="42" y="270" width="12" height="12" rx="2" class="f-d-ads"/><rect x="56" y="270" width="12" height="12" rx="2" class="f-d-ads"/><rect x="70" y="270" width="12" height="12" rx="2" class="f-d-ads"/><rect x="84" y="270" width="12" height="12" rx="2" class="f-d-ads"/><rect x="98" y="270" width="12" height="12" rx="2" class="f-d-ads"/><rect x="112" y="270" width="12" height="12" rx="2" class="f-d-ads"/><rect x="126" y="270" width="12" height="12" rx="2" class="f-d-ads"/><rect x="0" y="284" width="12" height="12" rx="2" class="f-d-ads"/><rect x="14" y="284" width="12" height="12" rx="2" class="f-d-ads"/><rect x="28" y="284" width="12" height="12" rx="2" class="f-d-ads"/><rect x="42" y="284" width="12" height="12" rx="2" class="f-d-ads"/><rect x="56" y="284" width="12" height="12" rx="2" class="f-d-ads"/><rect x="70" y="284" width="12" height="12" rx="2" class="f-d-ads"/><rect x="84" y="284" width="12" height="12" rx="2" class="f-d-ads"/><rect x="98" y="284" width="12" height="12" rx="2" class="f-d-ads"/><rect x="112" y="284" width="12" height="12" rx="2" class="f-d-ads"/><rect x="126" y="284" width="12" height="12" rx="2" class="f-d-ads"/><rect x="0" y="298" width="12" height="12" rx="2" class="f-d-ads"/><rect x="14" y="298" width="12" height="12" rx="2" class="f-d-ads"/><rect x="28" y="298" width="12" height="12" rx="2" class="f-d-ads"/><rect x="42" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="56" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="70" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="84" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="98" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="112" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="126" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="0" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="14" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="28" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="42" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="56" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="70" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="84" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="98" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="112" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="126" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="0" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="14" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="28" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="42" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="56" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="70" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="84" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="98" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="112" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="126" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="0" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="14" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="28" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="42" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="56" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="70" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="84" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="98" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="112" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="126" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="0" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="14" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="28" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="42" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="56" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="70" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="84" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="98" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="112" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="126" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="0" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="14" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="28" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="42" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="56" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="70" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="84" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="98" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="112" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="126" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="0" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="14" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="28" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="42" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="56" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="70" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="84" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="98" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="112" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="126" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="0" y="256" width="138" height="138" class="f-none"><title>客厅（电视端）占YouTube 广告收入：1/3+（约 33%+）</title></rect><text x="0" y="420" class="c-big">1/3+<tspan class="c-big-sub" dx="6">约 33%+</tspan></text><text x="0" y="442" class="c-lbl">客厅（电视端）占</text><text x="0" y="462" class="c-lbl">YouTube 广告收入</text><rect x="210" y="256" width="12" height="12" rx="2" class="f-d-search"/><rect x="224" y="256" width="12" height="12" rx="2" class="f-d-search"/><rect x="238" y="256" width="12" height="12" rx="2" class="f-d-search"/><rect x="252" y="256" width="12" height="12" rx="2" class="f-d-search"/><rect x="266" y="256" width="12" height="12" rx="2" class="f-d-search"/><rect x="280" y="256" width="12" height="12" rx="2" class="f-d-search"/><rect x="294" y="256" width="12" height="12" rx="2" class="f-d-search"/><rect x="308" y="256" width="12" height="12" rx="2" class="f-d-search"/><rect x="322" y="256" width="12" height="12" rx="2" class="f-d-search"/><rect x="336" y="256" width="12" height="12" rx="2" class="f-d-search"/><rect x="210" y="270" width="12" height="12" rx="2" class="f-d-search"/><rect x="224" y="270" width="12" height="12" rx="2" class="f-d-search"/><rect x="238" y="270" width="12" height="12" rx="2" class="f-d-search"/><rect x="252" y="270" width="12" height="12" rx="2" class="f-d-search"/><rect x="266" y="270" width="12" height="12" rx="2" class="f-d-search"/><rect x="280" y="270" width="12" height="12" rx="2" class="f-d-search"/><rect x="294" y="270" width="12" height="12" rx="2" class="f-d-search"/><rect x="308" y="270" width="12" height="12" rx="2" class="f-d-search"/><rect x="322" y="270" width="12" height="12" rx="2" class="f-d-search"/><rect x="336" y="270" width="12" height="12" rx="2" class="f-d-search"/><rect x="210" y="284" width="12" height="12" rx="2" class="f-empty"/><rect x="224" y="284" width="12" height="12" rx="2" class="f-empty"/><rect x="238" y="284" width="12" height="12" rx="2" class="f-empty"/><rect x="252" y="284" width="12" height="12" rx="2" class="f-empty"/><rect x="266" y="284" width="12" height="12" rx="2" class="f-empty"/><rect x="280" y="284" width="12" height="12" rx="2" class="f-empty"/><rect x="294" y="284" width="12" height="12" rx="2" class="f-empty"/><rect x="308" y="284" width="12" height="12" rx="2" class="f-empty"/><rect x="322" y="284" width="12" height="12" rx="2" class="f-empty"/><rect x="336" y="284" width="12" height="12" rx="2" class="f-empty"/><rect x="210" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="224" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="238" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="252" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="266" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="280" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="294" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="308" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="322" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="336" y="298" width="12" height="12" rx="2" class="f-empty"/><rect x="210" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="224" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="238" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="252" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="266" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="280" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="294" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="308" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="322" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="336" y="312" width="12" height="12" rx="2" class="f-empty"/><rect x="210" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="224" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="238" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="252" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="266" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="280" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="294" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="308" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="322" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="336" y="326" width="12" height="12" rx="2" class="f-empty"/><rect x="210" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="224" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="238" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="252" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="266" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="280" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="294" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="308" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="322" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="336" y="340" width="12" height="12" rx="2" class="f-empty"/><rect x="210" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="224" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="238" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="252" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="266" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="280" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="294" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="308" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="322" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="336" y="354" width="12" height="12" rx="2" class="f-empty"/><rect x="210" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="224" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="238" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="252" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="266" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="280" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="294" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="308" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="322" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="336" y="368" width="12" height="12" rx="2" class="f-empty"/><rect x="210" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="224" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="238" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="252" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="266" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="280" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="294" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="308" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="322" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="336" y="382" width="12" height="12" rx="2" class="f-empty"/><rect x="210" y="256" width="138" height="138" class="f-none"><title>AI 模式搜索里用语音、图片或文档的比例：1/5（20%）</title></rect><text x="210" y="420" class="c-big">1/5<tspan class="c-big-sub" dx="6">20%</tspan></text><text x="210" y="442" class="c-lbl">AI 模式搜索里用语音、</text><text x="210" y="462" class="c-lbl">图片或文档的比例</text></svg>
+      <figcaption>每格 1%，按原文数值取整绘制：近 90% 画 90 格，95%+ 画 95 格，1/3+ 画 33 格，1/5 画 20 格；“近”“+”以文字为准。</figcaption>
+    </figure>
+  </div>
+  <div class="tiles" aria-label="规模数字"><div class="tile"><span class="t-value">10 亿</span><span class="t-desc">Gemini 应用用户，Google 历史上增长最快的产品</span></div><div class="tile"><span class="t-value">1.5 亿+</span><span class="t-desc">YouTube Music 和 Premium 全球订阅用户（含试用）</span></div><div class="tile"><span class="t-value">500 亿+</span><span class="t-desc">每月视觉搜索次数</span></div><div class="tile"><span class="t-value">2000 万+</span><span class="t-desc">YouTube 每天上传的视频数</span></div><div class="tile"><span class="t-value">15 亿+</span><span class="t-desc">Q3 由 Gemini 帮助生成的广告素材</span></div><div class="tile"><span class="t-value">1 亿+</span><span class="t-desc">所有 AI 服务中卖出的知识工作席位</span></div><div class="tile"><span class="t-value">3 亿+ 英里</span><span class="t-desc">Waymo 全自动驾驶里程</span></div><div class="tile"><span class="t-value">18 条</span><span class="t-desc">年收入各超 $1B 的 Google Cloud 产品线</span></div><div class="tile"><span class="t-value">2600+</span><span class="t-desc">过去 12 个月 Gemini Enterprise 用量 ≥1000 亿 token 的客户</span></div><div class="tile"><span class="t-value">近 75 家</span><span class="t-desc">其中用量 ≥10 万亿 token 的客户</span></div></div>
+  <aside class="note milestones"><h3>里程碑</h3><div class="cols-2"><div><div class="ms-group"><h4>模型</h4><ul><li>Carbon 在 Artificial Analysis 智能指数上以 59 分排名第一；先向受信任的网络安全防御方推出，美国政府也在测试。</li><li>Genie 4 是迄今最先进的世界模型，能实时模拟安全、逼真、可交互、带原生音频的世界。</li></ul></div><div class="ms-group"><h4>长期项目</h4><ul><li>Waymo 在美国 15 个主要城市运营，最近向公众开放圣安东尼奥、圣地亚哥和坦帕。</li><li>Waymo 计划扩展到加拿大、德国、新加坡和西班牙。</li><li>量子计算首次演示“魔术态培育”（magic state cultivation）。</li><li>Project Suncatcher 把 TPU 送入太空。</li><li>Isomorphic 用 Argon 支持药物设计研究。</li></ul></div></div><div><div class="ms-group"><h4>搜索</h4><ul><li>查询量同比增速为过去五年最高，商业类查询也在增长。</li></ul></div><div class="ms-group"><h4>广告与商务</h4><ul><li>商品列表广告完成十年来最大的一次更新。</li><li>AI 模式广告扩展到国际市场；美国推出 AI 模式多轮对话广告。</li><li>通用商务协议（UCP）已为 Google 上数十万个品牌提供直接结账，包括 Chewy、Nike、Tapestry。</li><li>推出 Universal Cart，帮零售商抓住销售机会、减少弃购。</li></ul></div><div class="ms-group"><h4>Cloud 安全</h4><ul><li>Gemini 与 Google 威胁情报每天自主分析数百万个外部事件，准确率 98%。</li><li>Gemini Flash 网络安全模型可在 20 种编程语言中自动发现漏洞。</li></ul></div></div></div></aside>
+</section>
+
+<section class="sec" id="search">
+  <div class="sec-head">
+    <h2><span class="sec-no">08</span>搜索增速放缓的拆解</h2>
+    <p class="thesis">查询量增速创五年新高，搜索收入增速却较 Q2 放缓，汇率是最大单一因素。</p>
+  </div>
+  <div class="grid-note">
+    <figure class="fig">
+      <div class="fig-head"><span class="unit">示意 · 未量化</span><h3><span class="fig-id">图 K</span>Q2→Q3 搜索增速放缓因素</h3></div>
+      <svg viewBox="0 0 400 374" role="img" aria-labelledby="ck-t ck-d"><title id="ck-t">图 K Q2→Q3 搜索增速放缓因素</title><desc id="ck-d">按原文顺序：汇率（最大单一因素）、零售、媒体娱乐；Q3 搜索及其他广告收入 $63.3B，同比 +12%。另：AI 模式查询高增长但变现较低，是对查询量与收入增速背离的回应。</desc><rect x="0" y="0" width="400" height="40" rx="6" class="m-box"/><text x="14" y="26" class="c-name">Q2 搜索增速<tspan class="c-sub" dx="6">（本次电话会未给数值）</tspan></text><line x1="16" y1="46" x2="16" y2="236" class="c-flow"/><path d="M10,236 L22,236 L16,246 Z" class="m-flow"/><rect x="36" y="52" width="364" height="54" rx="6" class="m-card"/><text x="50" y="75" class="c-name">①</text><text x="72" y="75" class="c-name">汇率</text><text x="72" y="95" class="c-sub">对广告：同比轻微拖累，环比更大（CFO）</text><rect x="282" y="57" width="110" height="23" rx="11.5" class="m-negsoft"/><text x="337" y="74" class="c-name" text-anchor="middle">最大单一因素</text><rect x="36" y="114" width="364" height="54" rx="6" class="m-card"/><text x="50" y="137" class="c-name">②</text><text x="72" y="137" class="c-name">零售</text><text x="72" y="157" class="c-sub">部分亚太广告主受欧盟取消小额免税影响</text><rect x="36" y="176" width="364" height="54" rx="6" class="m-card"/><text x="50" y="199" class="c-name">③</text><text x="72" y="199" class="c-name">媒体娱乐</text><text x="72" y="219" class="c-sub">Q2 受世界杯推高，Q3 回归正常</text><rect x="0" y="252" width="400" height="40" rx="6" class="m-box"/><text x="14" y="278" class="c-name">Q3 搜索及其他广告<tspan class="c-val" dx="8">+12% · $63.3B</tspan></text><rect x="1" y="309" width="398" height="62" rx="6" class="m-aside"/><text x="14" y="333" class="c-sub">另：回应查询量与收入增速背离</text><text x="14" y="357" class="c-name">AI 模式查询高增长，但目前变现水平较低</text></svg>
+      <figcaption>①–③ 按 Philipp Schindler 回答的原文顺序；卡片等宽，不代表影响大小，原文只说明汇率是最大单一因素。虚线框是他对查询量与收入增速背离的补充回应，不在放缓因素序列内。</figcaption>
+    </figure>
+    <aside class="note">
+      <h4>Q3 搜索收入的来源</h4>
+      <ul>
+        <li>搜索及其他广告 $63.3B（+12%），<b>零售贡献最大，其次是金融</b>。</li>
+        <li>查询量同比增速为五年来最高，商业类查询也在增长。</li>
+      </ul>
+      <h4>CFO 对比较基数的说明</h4>
+      <ul>
+        <li>去年 Q3 起搜索增长加速，形成高基数：Q3 约有 <b>3 个百分点</b>的影响。</li>
+        <li>Q4 继续面对 2025 年底那波加速，高基数将带来<b>几个百分点</b>的影响。</li>
+        <li>按当前即期汇率，Q4 汇率拖累略大于 Q3，主要体现在搜索和 YouTube 广告。</li>
+      </ul>
+      <p class="quote">原文 “We left about 3 points of growth versus Q3”，译者认为 “left” 疑为 “lapped”。</p>
+      <h4>管理层为何不担心</h4>
+      <ul>
+        <li>AI 模式中多数查询是增量查询，偏漏斗上层，能捕捉新的高价值商业意图。</li>
+        <li>AI 模式里赞助与自然商品列表的点击率已经接近；AI 模式广告正扩展到国际市场，美国推出多轮对话广告。</li>
+        <li>广告实验结果很有希望，AI 概览和 AI 模式中的广告正推向更多用户和查询。</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="sec" id="qa">
+  <div class="sec-head">
+    <h2><span class="sec-no">09</span>分析师问答</h2>
+    <p class="thesis">七位分析师反复追问三件事：智能体怎么落地、搜索为什么放缓、TPU 生意怎么算账。</p>
+  </div>
+  <div class="qa">
+    <article class="qa-card"><div><div class="qa-who"><b>Doug Anmuth</b>摩根大通</div><p class="qa-q">2027 年为何可能是 Google 生产力的黄金时代？查询量增速五年最快，搜索收入却放缓，如何理解这种背离？</p></div><div class="qa-a"><div><h4>Sundar Pichai</h4><ul><li>内部用 3.8 Flash 时已见阶跃变化，部署 Argon 后出现<span class="hl">巨大拐点</span>，是软件工程上最重要的内部生产力杠杆之一，而这只是约四周前的事。</li><li>正在内部部署明显强于 Argon 的 Carbon，比说那番话时更兴奋：未来一年将是<span class="hl">提升生产力的黄金之年</span>。</li></ul></div><div><h4>Philipp Schindler</h4><ul><li>搜索收入 +12% 至约 $63B（CFO 口径 $63.3B）；较 Q2 放缓的<span class="hl">最大单一因素是汇率</span>。</li><li>其次是行业变化：零售受亚太广告主与欧盟取消小额免税影响；媒体娱乐 Q2 受世界杯推高，Q3 回归正常。</li><li><span class="aside">另就查询量与收入增速的背离：AI 模式查询强劲增长，而 AI 模式中的变现水平较低。</span></li><li>广告实验结果很有希望，正把 AI 概览和 AI 模式广告推向更多用户和查询。</li></ul></div></div></article>
+    <article class="qa-card"><div><div class="qa-who"><b>Brian Nowak</b>摩根士丹利</div><p class="qa-q">把智能体推向全部用户，技术上的关键障碍是什么？搜索的比较基数对 Q4 和明年 Q1 意味着什么？</p></div><div class="qa-a"><div><h4>Sundar Pichai</h4><ul><li>正在开发<span class="hl">Carbon 的蒸馏版本</span>，以便在十亿用户规模上兼顾算力、延迟和质量。</li><li>光有强模型不够，还需要稳健的运行框架、GCP 提供的<span class="hl">24/7 安全运行时</span>，以及技能和连接器生态。</li><li><span class="hl">先企业后消费者</span>：先推 Gemini 企业版智能体，今年晚些时候从 Gemini 应用的 10 亿用户开始带给消费者。</li></ul></div><div><h4>Anat Ashkenazi</h4><ul><li>环比汇率逆风持续，按即期汇率 Q4 仍有拖累。</li><li>Q3 起面对 2025 年搜索加速形成的高基数，约 3 个百分点影响；Q4 继续有几个百分点影响。未单独谈明年 Q1。</li></ul></div></div></article>
+    <article class="qa-card"><div><div class="qa-who"><b>Eric Sheridan</b>高盛</div><p class="qa-q">算力陆续到位后，全公司分配算力的优先级是什么？Cloud 内部如何权衡云客户需求与对外提供 TPU？</p></div><div class="qa-a"><div><h4>Sundar Pichai</h4><ul><li>这是<span class="hl">长期规划</span>而非短期分配；每个业务部门提交长期规划，用严格的 ROIC 框架评估。</li><li>AI 模型是一切的基础，全栈方式带来高效率和选择空间。</li></ul></div><div><h4>Thomas Kurian</h4><ul><li>管理客户组合的广度：数字原生企业、AI 实验室、传统企业、金融与资本市场。100 多家重要 TPU 客户从云上起步。</li><li>推 TPU 的三步：做对芯片（8t 训练、8i 推理），优化软件（TorchTPU），<span class="hl">扩大分销</span>（客户数据中心、甲骨文、Crux AI）。</li></ul></div></div></article>
+    <article class="qa-card"><div><div class="qa-who"><b>Ross Sandler</b>巴克莱</div><p class="qa-q">1 吉瓦 TPU 完整系统约 $35B，多少会确认为收入、利润如何传导？帮 Anthropic 等建自有基础设施，对 Alphabet 资本开支强度意味着什么？</p></div><div class="qa-a"><div><h4>Anat Ashkenazi</h4><ul><li>不提供产品层面的财务数据；TPU 系统不只是芯片，还包括硬件、计算、存储、网络和软件。</li><li>签约后先进入积压订单，随后备货（库存上升、现金流出），交付开票后现金流入。</li><li><span class="hl">不是传统意义上的资本开支，而是不同的现金流产生周期</span>；已有部分确认收入，更多在 2027 年。</li></ul></div></div></article>
+    <article class="qa-card"><div><div class="qa-who"><b>Justin Post</b>美国银行</div><p class="qa-q">搜索向智能体使用方式转型会不会成为逆风？智能体长期能否带来更多变现？TPU 是不是一门好生意？</p></div><div class="qa-a"><div><h4>Philipp Schindler</h4><ul><li>智能体体验<span class="hl">显然是增量</span>；自动化购物中繁琐的环节，同时增强而不是取代“发现”体验。</li><li>决策很少只有一个完美选项，因此有信心为智能体用例做出有吸引力的广告模式，也可能有订阅等付费方式。</li></ul></div><div><h4>Sundar Pichai</h4><ul><li>这是<span class="hl">扩张机会</span>，就像在搜索中加入 AI 聊天用例；外界低估了交付复杂智能体体验需要的组件，比如知识图谱。</li></ul></div><div><h4>Thomas Kurian</h4><ul><li>不单独披露利润率；凭性价比优势、加速计算需求增长与稀缺性，<span class="hl">在扩大规模的同时持续提高利润率</span>。</li><li>只在签约后采购零部件，所有 TPU 库存都对应已承诺合同；放进第三方和客户数据中心可扩大市场，也不必预建设施。</li></ul></div></div></article>
+    <article class="qa-card"><div><div class="qa-who"><b>Mark Shmulik</b>AllianceBernstein</div><p class="qa-q">早期智能体用例里有什么出乎意料？剔除 TPU 系统销售后 Cloud 增速多少、受多少产能限制，Q4 第三方算力上线后会否加速？</p></div><div class="qa-a"><div><h4>Sundar Pichai</h4><ul><li>Gemini 应用新增任务标签页；用户想要惊喜，标准很高，关键是把长任务真正做完。</li><li>像编程一样，<span class="hl">做到 70% 时看似没用，跨过门槛后才真正起飞</span>。</li><li>补充 TPU：半导体讲规模经济，同时部署在自有和他人数据中心会转化为更好的经济效益。</li></ul></div><div><h4>Thomas Kurian</h4><ul><li>Cloud +103% 至 $30.7B，GCP 贡献最大；<span class="hl">剔除 TPU 后增速依然非常强劲</span>，但未给具体数字。</li><li>Gemini 带动算力、存储、数据库和网络安全的连带增长，新客户采用在加速。</li><li>有更多产能就能满足多得多的需求，但在谨慎管理；未直接回答 Q4 是否加速。</li></ul></div></div></article>
+    <article class="qa-card"><div><div class="qa-who"><b>Michael Nathanson</b>MoffettNathanson</div><p class="qa-q">为何愿意与潜在竞争对手合作，长期看为何是机会而非风险？消费者智能体在安全和信任上学到了什么？</p></div><div class="qa-a"><div><h4>Sundar Pichai</h4><ul><li>区分<span class="hl">产品与平台</span>：平台要对所有参与者适用，浏览器、操作系统、云都是如此；也与苹果在模型上合作。</li><li>TPU 系统是重要平台，要放到市场竞争中检验，争取最苛刻的工作负载；长期看<span class="hl">和竞争者合作会扩大机会</span>。</li><li>用户明显在意安全和信任；端到端落实、大量测试、实时监控，将成为巨大差异化优势，用户会用脚投票。</li></ul></div></div></article>
+  </div>
+</section>
+
+<section class="sec" id="outlook">
+  <div class="sec-head">
+    <h2><span class="sec-no">10</span>Q4 与 2027 展望</h2>
+    <p class="thesis">Q4 同时面对汇率、搜索高基数和 Cloud 利润率三重压力；2027 年资本开支大幅增加。</p>
+  </div>
+  <ul class="outlook">
+    <li><span class="o-cell"><span class="o-tag down">↓ 逆风</span></span><span class="o-topic">汇率</span><span class="o-text">按当前即期汇率，Q4 对合并收入的拖累略大于 Q3，主要体现在搜索和 YouTube 广告。</span></li>
+    <li><span class="o-cell"><span class="o-tag down">↓ 逆风</span></span><span class="o-topic">搜索高基数</span><span class="o-text">去年 Q3 开始的搜索加速形成高基数，给 Q4 收入增长带来压力，影响为几个百分点。</span></li>
+    <li><span class="o-cell"><span class="o-tag up">↑ 顺风</span></span><span class="o-topic">TPU 系统销售</span><span class="o-text">Q4 继续扩大，2027 年收入将明显攀升。</span></li>
+    <li><span class="o-cell"><span class="o-tag down">↓ 逆风</span></span><span class="o-topic">Cloud 利润率</span><span class="o-text">Q3 末已开始使用第三方算力，Q4 加大使用，使用期间短期利润率承压。</span></li>
+    <li><span class="o-cell"><span class="o-tag flat">→ 指引</span></span><span class="o-topic">资本开支</span><span class="o-text">2026 全年 $195–205B 不变；2027 年将大幅增加，细节在 Q4 电话会公布。</span></li>
+    <li><span class="o-cell"><span class="o-tag down">↓ 逆风</span></span><span class="o-topic">折旧与运营成本</span><span class="o-text">技术基础设施投资大增，折旧和能源等数据中心运营成本将持续压在损益表上。</span></li>
+    <li><span class="o-cell"><span class="o-tag flat">→ 指引</span></span><span class="o-topic">回报与现金</span><span class="o-text">预计 ROIC 明显高于资本成本，经营现金流依然强劲；基础设施投资和 TPU 备货将压低自由现金流。</span></li>
+  </ul>
+</section>
+
+<footer class="foot">
+  <p>来源：用户提供的 Alphabet 2026 年第三季度财报电话会中文译文全文。除特别注明外，均为同比比较。</p>
+  <p>金额单位为美元，$B = 十亿美元，$M = 百万美元。token、用户、搜索次数等非金额计数仍用中文“亿”。</p>
+  <p>标注“推算”的数值由本页按原文倍数或加减得出，不是公司披露数字。原文未披露的净利润、每股收益、毛利率等指标，本页一律不列。</p>
+  <p>本页为信息整理，不构成投资建议。</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById("theme-toggle");
+  var ORDER = ["system", "light", "dark"];
+  var LABEL = { system: "主题：跟随系统", light: "主题：浅色", dark: "主题：深色" };
+  var KEY = "alphabet-q3-2026-theme";
+
+  function readSaved() {
+    try {
+      return localStorage.getItem(KEY) || "system";
+    } catch (err) {
+      console.warn("无法读取主题偏好，使用跟随系统：", err);
+      return "system";
+    }
+  }
+  function save(mode) {
+    try {
+      localStorage.setItem(KEY, mode);
+    } catch (err) {
+      console.warn("无法保存主题偏好：", err);
+    }
+  }
+  function apply(mode) {
+    if (mode === "system") {
+      root.removeAttribute("data-theme");
+    } else {
+      root.setAttribute("data-theme", mode);
+    }
+    btn.textContent = LABEL[mode];
+  }
+
+  var mode = readSaved();
+  if (ORDER.indexOf(mode) === -1) mode = "system";
+  apply(mode);
+  btn.addEventListener("click", function () {
+    mode = ORDER[(ORDER.indexOf(mode) + 1) % ORDER.length];
+    apply(mode);
+    save(mode);
+  });
+})();
+</script>
